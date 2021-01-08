@@ -5,7 +5,11 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const sauceRoutes = require('./routes/sauce');
 const path = require('path');
+const helmet = require('helmet');
+
 require('dotenv').config()
+
+app.use(helmet());
 
 mongoose.connect(process.env.DB_CONNECTION,
   { useNewUrlParser: true,
